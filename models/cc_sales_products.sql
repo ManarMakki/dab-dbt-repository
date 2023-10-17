@@ -4,13 +4,18 @@
   )
 }}
 
+
+
+with s as (SELECT
+* from {{ref("stg_cc_sales")}})
+
 SELECT
   ### Key ###  
   product_id
   ###########
-  ,SUM(quantity) AS qty_91
-  ,ROUND(SUM(quantity)/91,2) AS avg_daily_qty_91
-FROM `raw_data_circle.raw_cc_sales` 
+  ,SUM(qty) AS qty_91
+  ,ROUND(SUM(qty)/91,2) AS avg_daily_qty_91
+FROM s 
 WHERE 
 	date_date >= DATE_SUB('2021-10-01',INTERVAL 91 DAY)
 GROUP BY product_id

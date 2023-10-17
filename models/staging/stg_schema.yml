@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_cc_sales
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+
+      - name: date_date
+        tests:
+          - not_null
+
+      - name: qty
+        tests:
+          - not_null
