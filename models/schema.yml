@@ -1,10 +1,16 @@
 version: 2
 
 models:
-  - name: cc_sales_products
+  - name: cc_stock
     columns:
-      ### PK ###
-      - name: avg_daily_qty_91
-     ## - name: qty_91
+      - name: product_id
+        tests:
+          - unique
+
+      - name: product_name
+        tests:
+          - not_null
+
+      - name: model_type
         tests:
           - not_null
